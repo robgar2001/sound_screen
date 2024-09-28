@@ -33,7 +33,7 @@ def measure_distance():
 window_size = 500 # Number of samples to average over in order to find the parameters of the distribution
 list = [] # List to store the samples of the distribution
 
-caught=False # If an abnormally was detected
+caught=False # If an anomaly was detected
 while True:
     #utime.sleep(2*refresh_speed)
     distance = measure_distance() # Measure distance
@@ -52,18 +52,18 @@ while True:
         rel_threshold = (1.5/100) * mean # Also use a relative threshold to the mean, this avoids being to sensitive
         threshold = max(5*standard_div, rel_threshold)
         if mean_diff > threshold:
-            # Detection of abnormaly
+            # Detection of anomaly
             if not caught:
-                # First detection of abnormaly
+                # First detection of anomaly
                 print(f'Caught! Difference from mean: {mean_diff} cm | threshold: {threshold} cm | mean: {mean} | standard_div: {standard_div}')
                 caught=True
-            continue # Continue with next measurement, do not add the 'abnomaly' to the statistics
+            continue # Continue with next measurement, do not add the 'anomaly' to the statistics
         
-        # No abnormaly, now we can safely pop the element, otherwise we would need it in the next iteration
+        # No anomaly, now we can safely pop the element, otherwise we would need it in the next iteration
         list.pop(0)
         caught=False
         print(f'Distance: {distance} cm | difference from mean: {mean_diff} cm | threshold: {threshold} cm | mean: {mean} cm | standard_div: {standard_div} cm')
-        
+
     elif len(list) == window_size:
         # Next cycle will be steady state
         print("Training done!")
