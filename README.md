@@ -1,6 +1,6 @@
 # Sound Screen
 ### Detection of a person using HC-SR04 and Raspberry Pi Pico
-It is a simple MicroPython script to detect humans passing in front of the HC-SR04 connected sensor. The principle is based on detecting the abnormaly as a deviation from the expected statistical distribution: a gaussian distribution.
+It is a simple MicroPython script to detect humans passing in front of the HC-SR04 connected sensor. The principle is based on detecting the anomaly as a deviation from the expected statistical distribution: a gaussian distribution.
 
 * main.py: The MicroPython logic.
 
